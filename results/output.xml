@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.13.2 on darwin)" generated="2025-11-20T21:26:40.465590" rpa="false" schemaversion="5">
+<suite id="s1" name="TPOTTROBOT" source="/Users/dominiquemereaux/code/TPOTTROBOT">
+<suite id="s1-s1" name="Test" source="/Users/dominiquemereaux/code/TPOTTROBOT/test">
+<suite id="s1-s1-s1" name="Recherche" source="/Users/dominiquemereaux/code/TPOTTROBOT/test/recherche.robot">
+<test id="s1-s1-s1-t1" name="Test page accueil" line="8">
+<kw name="Ouvrir Prestashop" owner="common" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-11-20T21:26:40.587703" level="INFO">Opening browser 'GC' to base url 'http://www.qualifiez.fr/monPrestashop2/prestashop/index.php'.</msg>
+<arg>${URL}</arg>
+<arg>${NAVIGATEUR}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-11-20T21:26:40.587530" elapsed="4.347213"/>
+</kw>
+<kw name="Title Should Be" owner="SeleniumLibrary">
+<msg time="2025-11-20T21:26:45.904271" level="INFO">Page title is 'monPrestashop'.</msg>
+<arg>monPrestashop</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<status status="PASS" start="2025-11-20T21:26:44.937491" elapsed="0.966990"/>
+</kw>
+<status status="PASS" start="2025-11-20T21:26:40.587145" elapsed="5.317470"/>
+</kw>
+<kw name="Aller a la page d'accueil" owner="header2">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-11-20T21:26:45.905581" level="INFO">Clicking element 'xpath=//*[@id="_desktop_logo"]//a/img'.</msg>
+<arg>xpath=//*[@id="_desktop_logo"]//a/img</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-20T21:26:45.905260" elapsed="1.569714"/>
+</kw>
+<status status="PASS" start="2025-11-20T21:26:45.904975" elapsed="1.570125"/>
+</kw>
+<kw name="Verifier titre page ${TITRE_ACCUEIL}" owner="common" source_name="verifier titre page ${titre}">
+<kw name="Title Should Be" owner="SeleniumLibrary">
+<msg time="2025-11-20T21:26:47.477241" level="INFO">Page title is 'monPrestashop'.</msg>
+<arg>${titre}</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<status status="PASS" start="2025-11-20T21:26:47.475557" elapsed="0.001784"/>
+</kw>
+<status status="PASS" start="2025-11-20T21:26:47.475304" elapsed="0.002117"/>
+</kw>
+<kw name="Fermer Prestashop" owner="common" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-11-20T21:26:47.477939" elapsed="0.089857"/>
+</kw>
+<status status="PASS" start="2025-11-20T21:26:47.477736" elapsed="0.090179"/>
+</kw>
+<status status="PASS" start="2025-11-20T21:26:40.585450" elapsed="6.982545"/>
+</test>
+<status status="PASS" start="2025-11-20T21:26:40.485218" elapsed="7.085184"/>
+</suite>
+<status status="PASS" start="2025-11-20T21:26:40.483978" elapsed="7.087763"/>
+</suite>
+<status status="PASS" start="2025-11-20T21:26:40.470352" elapsed="7.102417"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="TPOTTROBOT" id="s1" pass="1" fail="0" skip="0">TPOTTROBOT</stat>
+<stat name="Test" id="s1-s1" pass="1" fail="0" skip="0">TPOTTROBOT.Test</stat>
+<stat name="Recherche" id="s1-s1-s1" pass="1" fail="0" skip="0">TPOTTROBOT.Test.Recherche</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
