@@ -1,57 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.2 (Python 3.13.2 on darwin)" generated="2025-11-20T21:26:40.465590" rpa="false" schemaversion="5">
+<robot generator="Robot 7.3.2 (Python 3.13.2 on darwin)" generated="2025-11-20T22:28:36.841574" rpa="false" schemaversion="5">
 <suite id="s1" name="TPOTTROBOT" source="/Users/dominiquemereaux/code/TPOTTROBOT">
 <suite id="s1-s1" name="Test" source="/Users/dominiquemereaux/code/TPOTTROBOT/test">
-<suite id="s1-s1-s1" name="Recherche" source="/Users/dominiquemereaux/code/TPOTTROBOT/test/recherche.robot">
-<test id="s1-s1-s1-t1" name="Test page accueil" line="8">
-<kw name="Ouvrir Prestashop" owner="common" type="SETUP">
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-11-20T21:26:40.587703" level="INFO">Opening browser 'GC' to base url 'http://www.qualifiez.fr/monPrestashop2/prestashop/index.php'.</msg>
-<arg>${URL}</arg>
-<arg>${NAVIGATEUR}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-11-20T21:26:40.587530" elapsed="4.347213"/>
+<suite id="s1-s1-s1" name="chuckNorris" source="/Users/dominiquemereaux/code/TPOTTROBOT/test/chuckNorris.robot">
+<test id="s1-s1-s1-t1" name="Test obtenir une blague aleatoire" line="6">
+<kw name="Ouvrir session" owner="chucknorris" type="SETUP">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-11-20T22:28:36.901554" level="INFO">Creating Session using : alias=chucknorris, url=https://api.chucknorris.io, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>${ALIAS}</arg>
+<arg>${BASE_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-11-20T22:28:36.901418" elapsed="0.000288"/>
 </kw>
-<kw name="Title Should Be" owner="SeleniumLibrary">
-<msg time="2025-11-20T21:26:45.904271" level="INFO">Page title is 'monPrestashop'.</msg>
-<arg>monPrestashop</arg>
-<doc>Verifies that the current page title equals ``title``.</doc>
-<status status="PASS" start="2025-11-20T21:26:44.937491" elapsed="0.966990"/>
+<status status="PASS" start="2025-11-20T22:28:36.901137" elapsed="0.000634"/>
 </kw>
-<status status="PASS" start="2025-11-20T21:26:40.587145" elapsed="5.317470"/>
+<kw name="Obtener une blague aleatoire" owner="chucknorris">
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2025-11-20T22:28:37.057036" level="INFO">GET Request : url=https://api.chucknorris.io/jokes/random 
+ path_url=/jokes/random 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-11-20T22:28:37.057275" level="INFO">GET Response : url=https://api.chucknorris.io/jokes/random 
+ status=200, reason=OK 
+ headers={'Date': 'Thu, 20 Nov 2025 21:28:37 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Nel': '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}', 'Report-To': '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=MF9ySSp6Tdy4xM%2BeJUnkFT%2FHHGmGEm%2Fu5Uqzma4jTk0%3D\\u0026sid=812dcc77-0bd0-43b1-a5f1-b25750382959\\u0026ts=1763674117"}],"max_age":3600}', 'Reporting-Endpoints': 'heroku-nel="https://nel.heroku.com/reports?s=MF9ySSp6Tdy4xM%2BeJUnkFT%2FHHGmGEm%2Fu5Uqzma4jTk0%3D&amp;sid=812dcc77-0bd0-43b1-a5f1-b25750382959&amp;ts=1763674117"', 'Server': 'cloudflare', 'Vary': 'Origin, Access-Control-Request-Method, Access-Control-Request-Headers', 'Via': '1.1 heroku-router', 'cf-cache-status': 'DYNAMIC', 'Content-Encoding': 'gzip', 'CF-RAY': '9a1b09bf780ba55f-MRS', 'alt-svc': 'h3=":443"; ma=86400'} 
+ body={"categories":[],"created_at":"2020-01-05 13:42:30.730109","icon_url":"https://api.chucknorris.io/img/avatar/chuck-norris.png","id":"2bnEqPi7SsuOAIedxXTmmQ","updated_at":"2020-01-05 13:42:30.730109","url":"https://api.chucknorris.io/jokes/2bnEqPi7SsuOAIedxXTmmQ","value":"If you play Stairway to Heaven backwards, you can hear Chuck Norris banging your sister"} 
+ </msg>
+<msg time="2025-11-20T22:28:37.057409" level="INFO">/Users/dominiquemereaux/code/TPOTTROBOT/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api.chucknorris.io'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-11-20T22:28:37.057672" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>${ALIAS}</arg>
+<arg>${RANDOM_JOKE_ENDPOINT}</arg>
+<arg>expected_status=200</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-11-20T22:28:36.902169" elapsed="0.155570"/>
 </kw>
-<kw name="Aller a la page d'accueil" owner="header2">
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-11-20T21:26:45.905581" level="INFO">Clicking element 'xpath=//*[@id="_desktop_logo"]//a/img'.</msg>
-<arg>xpath=//*[@id="_desktop_logo"]//a/img</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-11-20T21:26:45.905260" elapsed="1.569714"/>
+<return>
+<value>${response.json()}[value]</value>
+<status status="PASS" start="2025-11-20T22:28:37.057879" elapsed="0.000211"/>
+</return>
+<msg time="2025-11-20T22:28:37.058594" level="INFO">${blague} = If you play Stairway to Heaven backwards, you can hear Chuck Norris banging your sister</msg>
+<var>${blague}</var>
+<status status="PASS" start="2025-11-20T22:28:36.902007" elapsed="0.156730"/>
 </kw>
-<status status="PASS" start="2025-11-20T21:26:45.904975" elapsed="1.570125"/>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-11-20T22:28:37.059265" level="INFO">La blague est : If you play Stairway to Heaven backwards, you can hear Chuck Norris banging your sister</msg>
+<arg>La blague est : ${blague}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-11-20T22:28:37.058973" elapsed="0.000384"/>
 </kw>
-<kw name="Verifier titre page ${TITRE_ACCUEIL}" owner="common" source_name="verifier titre page ${titre}">
-<kw name="Title Should Be" owner="SeleniumLibrary">
-<msg time="2025-11-20T21:26:47.477241" level="INFO">Page title is 'monPrestashop'.</msg>
-<arg>${titre}</arg>
-<doc>Verifies that the current page title equals ``title``.</doc>
-<status status="PASS" start="2025-11-20T21:26:47.475557" elapsed="0.001784"/>
+<kw name="Fermer session" owner="chucknorris" type="TEARDOWN">
+<kw name="Delete All Sessions" owner="RequestsLibrary">
+<msg time="2025-11-20T22:28:37.060073" level="INFO">Deleting All Sessions</msg>
+<doc>Removes all the session objects</doc>
+<status status="PASS" start="2025-11-20T22:28:37.059930" elapsed="0.000324"/>
 </kw>
-<status status="PASS" start="2025-11-20T21:26:47.475304" elapsed="0.002117"/>
+<status status="PASS" start="2025-11-20T22:28:37.059659" elapsed="0.000679"/>
 </kw>
-<kw name="Fermer Prestashop" owner="common" type="TEARDOWN">
-<kw name="Close Browser" owner="SeleniumLibrary">
-<doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-11-20T21:26:47.477939" elapsed="0.089857"/>
-</kw>
-<status status="PASS" start="2025-11-20T21:26:47.477736" elapsed="0.090179"/>
-</kw>
-<status status="PASS" start="2025-11-20T21:26:40.585450" elapsed="6.982545"/>
+<status status="PASS" start="2025-11-20T22:28:36.899776" elapsed="0.160719"/>
 </test>
-<status status="PASS" start="2025-11-20T21:26:40.485218" elapsed="7.085184"/>
+<status status="PASS" start="2025-11-20T22:28:36.858564" elapsed="0.203811"/>
 </suite>
-<status status="PASS" start="2025-11-20T21:26:40.483978" elapsed="7.087763"/>
+<status status="PASS" start="2025-11-20T22:28:36.856889" elapsed="0.214691"/>
 </suite>
-<status status="PASS" start="2025-11-20T21:26:40.470352" elapsed="7.102417"/>
+<status status="PASS" start="2025-11-20T22:28:36.846257" elapsed="0.226885"/>
 </suite>
 <statistics>
 <total>
@@ -62,7 +75,7 @@
 <suite>
 <stat name="TPOTTROBOT" id="s1" pass="1" fail="0" skip="0">TPOTTROBOT</stat>
 <stat name="Test" id="s1-s1" pass="1" fail="0" skip="0">TPOTTROBOT.Test</stat>
-<stat name="Recherche" id="s1-s1-s1" pass="1" fail="0" skip="0">TPOTTROBOT.Test.Recherche</stat>
+<stat name="chuckNorris" id="s1-s1-s1" pass="1" fail="0" skip="0">TPOTTROBOT.Test.chuckNorris</stat>
 </suite>
 </statistics>
 <errors>
