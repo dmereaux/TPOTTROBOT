@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.13.2 on darwin)" generated="2026-10-21T15:32:41.923480" rpa="false" schemaversion="5">
+<suite id="s1" name="TPComplet" source="/Users/dominiquemereaux/code/TPOTTROBOT/test/TPComplet.robot">
+<test id="s1-t1" name="Test recherche avec saisie" line="5">
+<kw name="Ouvrir TPComplet" owner="TPComplet" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-10-21T15:32:42.029064" level="INFO">Opening browser 'GC' to base url 'http://localhost:8080/TPOTT2026-1.0-SNAPSHOT/home'.</msg>
+<arg>${URL}</arg>
+<arg>${NAVIGATEUR}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-10-21T15:32:42.028949" elapsed="0.838796"/>
+</kw>
+<status status="PASS" start="2026-10-21T15:32:42.028598" elapsed="0.839414"/>
+</kw>
+<kw name="Saisir recherche jean" owner="TPComplet" source_name="Saisir recherche ${saisie}">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-10-21T15:32:42.868911" level="INFO">Typing text 'jean' into text field '//*[@id="item"]'.</msg>
+<arg>${LOC_SAISIE}</arg>
+<arg>${saisie}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-21T15:32:42.868648" elapsed="0.076299"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-10-21T15:32:42.945227" level="INFO">Clicking element '//form/button'.</msg>
+<arg>${LOC_BOUTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-21T15:32:42.945079" elapsed="0.064689"/>
+</kw>
+<status status="PASS" start="2026-10-21T15:32:42.868398" elapsed="0.141596"/>
+</kw>
+<kw name="verifier titre page Résultats de la recherche" owner="TPComplet" source_name="verifier titre page ${titre}">
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<msg time="2026-10-21T15:32:43.011201" level="INFO">Verifying element '//h2' contains exact text 'Résultats de la recherche'.</msg>
+<msg time="2026-10-21T15:32:43.123213" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-10-21T15:32:43.123335" level="FAIL">The text of element '//h2' should have been 'Résultats de la recherche' but it was 'RÃ©sultats de la recherche'.</msg>
+<arg>${LOC_TITRE}</arg>
+<arg>${titre}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="FAIL" start="2026-10-21T15:32:43.010924" elapsed="0.115084">The text of element '//h2' should have been 'Résultats de la recherche' but it was 'RÃ©sultats de la recherche'.</status>
+</kw>
+<status status="FAIL" start="2026-10-21T15:32:43.010467" elapsed="0.115647">The text of element '//h2' should have been 'Résultats de la recherche' but it was 'RÃ©sultats de la recherche'.</status>
+</kw>
+<status status="FAIL" start="2026-10-21T15:32:42.028277" elapsed="1.097964">The text of element '//h2' should have been 'Résultats de la recherche' but it was 'RÃ©sultats de la recherche'.</status>
+</test>
+<status status="FAIL" start="2026-10-21T15:32:41.924281" elapsed="1.202251"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="TPComplet" id="s1" pass="0" fail="1" skip="0">TPComplet</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
