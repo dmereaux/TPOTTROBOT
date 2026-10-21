@@ -2,7 +2,7 @@
 Library   SeleniumLibrary   #implicit_wait=5
 *** Variables ***
 ${URL}   http://localhost:8080/TPOTT2026-1.0-SNAPSHOT/home
-${NAVIGATEUR}     GC
+${NAVIGATEUR}     FF
 ${LOC_SAISIE}  //*[@id="item"]
 ${LOC_BOUTON}  //form/button
 ${LOC_TITRE}  //h2
